@@ -13,6 +13,8 @@ namespace Virologie
         [STAThread]
         static void Main()
         {
+            FileExplorer explorer = new FileExplorer();
+            explorer.ExploreAndApply();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
