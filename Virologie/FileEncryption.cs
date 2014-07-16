@@ -10,41 +10,74 @@ namespace Virologie
 {
     class FileEncrypter
     {
-        private RSACryptoServiceProvider _algorithm;
+        private RSACryptoServiceProvider _algorithm_asym;
 
         public FileEncrypter()
         {
             CspParameters parameters = new CspParameters();
             parameters.KeyContainerName = "myKey";
-            _algorithm = new RSACryptoServiceProvider(2048, parameters);
+            _algorithm_asym = new RSACryptoServiceProvider(2048, parameters);
 
-            _algorithm.PersistKeyInCsp = false;
+            _algorithm_asym.PersistKeyInCsp = false;
         }
 
-        public void Encrypt(String filename)
+        public void Decrypt(string filename)
         {
-            BinaryReader sr = new BinaryReader(new FileStream(filename, FileMode.Open, FileAccess.ReadWrite));
-            BinaryWriter sw = new BinaryWriter(new FileStream(filename + ".crypt", FileMode.Create, FileAccess.Write));
+            FileStream fsInput = new FileStream(filename, FileMode.Open, FileAccess.Read);
+            FileStream fsOutput = new FileStream(filename + ".decrypt", FileMode.Create, FileAccess.Write);
+            AesCryptoServiceProvider Aes = new AesCryptoServiceProvider();
 
-            byte[] ibuffer = new byte[126];
-            byte[] obuffer;
-            
-            while (sr.BaseStream.Position != sr.BaseStream.Length)
-            {
-                ibuffer = sr.ReadBytes(126);
-                obuffer = _algorithm.Encrypt(ibuffer, true);
-                sw.Write(obuffer);
-            }
+            Aes.KeySize = 128;
+
+            byte[] input = new byte[256];
+
+            int count = fsInput.Read(input, 0, 256);
+            Aes.Key = _algorithm_asym.Decrypt(input, false);
+            count = fsInput.Read(input, 0, 256);
+            Aes.IV = _algorithm_asym.Decrypt(input, false);
+
+            ICryptoTransform desencrypt = Aes.CreateDecryptor();
+            CryptoStream cryptostream = new CryptoStream(fsOutput, desencrypt, CryptoStreamMode.Write);
+
+            byte[] bytearrayinput = new byte[fsInput.Length - 1];
+            fsInput.Read(bytearrayinput, 0, bytearrayinput.Length);
+            cryptostream.Write(bytearrayinput, 0, bytearrayinput.Length);
+        }
+
+        public void Encrypt(string filename)
+        {
+            FileStream fsInput = new FileStream(filename, FileMode.Open, FileAccess.Read);
+            FileStream fsOutput = new FileStream(filename + ".crypt", FileMode.Create, FileAccess.Write);
+            AesCryptoServiceProvider Aes = new AesCryptoServiceProvider();
+
+            Aes.KeySize = 128;
+            Aes.GenerateIV();
+            Aes.GenerateKey();
+
+            byte[] output = _algorithm_asym.Encrypt(Aes.Key, false);
+            fsOutput.Write(output, 0, 256);
+            output = _algorithm_asym.Encrypt(Aes.IV, false);
+            fsOutput.Write(output, 0, 256);
+
+            ICryptoTransform encrypt = Aes.CreateEncryptor();
+            CryptoStream cryptostream = new CryptoStream(fsOutput, encrypt, CryptoStreamMode.Write);
+
+            byte[] bytearrayinput = new byte[fsInput.Length - 1];
+            fsInput.Read(bytearrayinput, 0, bytearrayinput.Length);
+            cryptostream.Write(bytearrayinput, 0, bytearrayinput.Length);
+
+            fsInput.Close();
+            fsOutput.Close();
         }
 
         public string DumpKey()
         {
-            return _algorithm.ToXmlString(false);
+            return _algorithm_asym.ToXmlString(false);
         }
 
         public void ImportKey(String key)
         {
-            _algorithm.FromXmlString(key);
+            _algorithm_asym.FromXmlString(key);
         }
     }
 }
