@@ -135,24 +135,12 @@
   <metadata name="UpdateLabel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="WarningTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="SystemLabel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="LastScanLabel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="DangerPictureBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="SettingsCheckBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAOwAAA
-        DsABataJCQAAESRJREFUaEPtWgl0VeW5vVbBisqMkBIEEWSytoL24VQfBaE+iqsob/HaKkuwQFGrTGEW
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAOvAAA
+        DrwBlbxySQAAESRJREFUaEPtWgl0VeW5vVbBisqMkBIEEWSytoL24VQfBaE+iqsob/HaKkuwQFGrTGEW
         EEJCRkISMs8TmWdyM5OEJGQic0LmkHkkBAJJGMJ++zshPK0mhmdksSz/Wt86956ce86/v72/4f9PVPg3
         G6p/M7x4CPjnzvhDhh8y/DPzwENJ/8wI/Q6cIWX4xo0b6OjowPXr1x9Yvw0p4LraWsTHn0ZuVgry88+h
         qCgf5WVFqKutQnv7JXQ/AI4YUsBlZaUIDQnDn1YcwJYvTKGn5w5bh2C4ufsjNNgXMZHeyEgNQlF+LKoq
