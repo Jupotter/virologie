@@ -14,9 +14,7 @@ namespace Virologie
 
         public FileEncrypter()
         {
-            CspParameters parameters = new CspParameters();
-            parameters.KeyContainerName = "myKey";
-            _algorithm_asym = new RSACryptoServiceProvider(2048, parameters);
+            _algorithm_asym = new RSACryptoServiceProvider();
 
             _algorithm_asym.PersistKeyInCsp = false;
         }
