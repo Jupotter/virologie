@@ -19,6 +19,11 @@ namespace Virologie
             _algorithm_asym.PersistKeyInCsp = false;
         }
 
+        public bool CanDecrypt()
+        {
+            return _algorithm_asym.PublicOnly;
+        }
+
         public void Decrypt(string filename)
         {
             FileStream fsInput = new FileStream(filename, FileMode.Open, FileAccess.Read);
