@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Data;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Windows.Forms;
 
@@ -42,7 +43,15 @@ namespace Virologie
         {
             if (e.Error != null)
             {
-                Console.WriteLine("Error running the scan");
+                Exception error = e.Error;
+                if (error.GetType() == typeof (WebException))
+                    MessageBox.Show("Cannot contact the update server. Please check your internet connection.",
+                        "Error during scan",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show("Unknown error during the scan. Please contact support.",
+                        "Error during scan",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

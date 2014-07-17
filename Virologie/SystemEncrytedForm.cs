@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -55,6 +56,21 @@ namespace Virologie
 
         void _worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            if (e.Error != null)
+            {
+                Exception error = e.Error;
+                if (error.GetType() == typeof (FileNotFoundException))
+                    MessageBox.Show(
+                        "The file you provided is not a correct key. Please make sure you select the license key given when you registered",
+                        "Error during scan",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show("Unknown error during the scan. Please contact support.",
+                        "Error during scan",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             progressBar1.Value = 100;
             label3.Text = "Cleanup complete";
             CryptoKeyManager.CleanGuid();

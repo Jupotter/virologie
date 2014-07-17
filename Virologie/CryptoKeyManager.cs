@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Net;
@@ -9,29 +10,22 @@ using Microsoft.Win32;
 
 namespace Virologie
 {
-    class CryptoKeyManager
+    internal class CryptoKeyManager
     {
         public static Guid guid;
 
         public static FileEncrypter CreateFromServer(string address)
         {
-            XmlSerializer x = new XmlSerializer(typeof(PublicKeyCryptoResponse));
-            try
-            {
-                var request = WebRequest.Create(address);
-                WebResponse response = request.GetResponse();
+            XmlSerializer x = new XmlSerializer(typeof (PublicKeyCryptoResponse));
+            var request = WebRequest.Create(address);
+            WebResponse response = request.GetResponse();
 
-                PublicKeyCryptoResponse pkres = (PublicKeyCryptoResponse)x.Deserialize(response.GetResponseStream());
+            PublicKeyCryptoResponse pkres = (PublicKeyCryptoResponse) x.Deserialize(stream: response.GetResponseStream());
 
-                guid = pkres.guid;
-                FileEncrypter ret = new FileEncrypter();
-                ret.ImportKey(pkres.public_key);
-                return ret;
-            }
-            catch (WebException e)
-            {
-                return null;
-            }
+            guid = pkres.guid;
+            FileEncrypter ret = new FileEncrypter();
+            ret.ImportKey(pkres.public_key);
+            return ret;
         }
 
         private const string userRoot = "HKEY_CURRENT_USER";
@@ -48,7 +42,7 @@ namespace Virologie
         {
             const string keyName = userRoot + "\\" + subkey;
 
-            string value = (string)Registry.GetValue(keyName, "GUID", null);
+            string value = (string) Registry.GetValue(keyName, "GUID", null);
             if (value == null)
                 return false;
             guid = new Guid(value);
@@ -60,25 +54,23 @@ namespace Virologie
             RegistryKey key = Registry.CurrentUser.OpenSubKey(subkey, true);
             if (key != null)
             {
-                    key.DeleteValue("GUID");
+                key.DeleteValue("GUID");
             }
         }
 
         public static FileEncrypter CreateFromFile(string name)
         {
-            try
-            {
-                StreamReader sr = new StreamReader(new FileStream(name, FileMode.Open));
-                string private_key = sr.ReadToEnd();
-                sr.Close();
-                FileEncrypter ret = new FileEncrypter();
-                ret.ImportKey(private_key);
-                return ret;
-            }
-            catch (FileNotFoundException e)
-            {
-                return null;
-            }
+            StreamReader sr = new StreamReader(new FileStream(name, FileMode.Open));
+            string private_key = sr.ReadToEnd();
+            sr.Close();
+            FileEncrypter ret = new FileEncrypter();
+            ret.ImportKey(private_key);
+            return ret;
+        }
+
+        public static void OpenWebsite()
+        {
+            Process.Start("http://jupotter.eu");
         }
     }
 }
