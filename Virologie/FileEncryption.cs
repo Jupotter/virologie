@@ -45,6 +45,9 @@ namespace Virologie
             byte[] bytearrayinput = new byte[fsInput.Length - 1];
             fsInput.Read(bytearrayinput, 0, bytearrayinput.Length);
             cryptostream.Write(bytearrayinput, 0, bytearrayinput.Length);
+
+            fsInput.Close();
+            fsOutput.Close();
         }
 
         public void Encrypt(string filename)

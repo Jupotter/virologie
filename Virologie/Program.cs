@@ -15,6 +15,7 @@ namespace Virologie
         [STAThread]
         static void Main()
         {
+            CryptoKeyManager.GetGUID();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());

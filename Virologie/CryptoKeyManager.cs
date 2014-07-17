@@ -55,12 +55,22 @@ namespace Virologie
             return true;
         }
 
+        public static void CleanGuid()
+        {
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(subkey);
+            if (key != null)
+            {
+                key.DeleteValue("GUID");
+            }
+        }
+
         public static FileEncrypter CreateFromFile(string name)
         {
             try
             {
                 StreamReader sr = new StreamReader(new FileStream(name, FileMode.Open));
                 string private_key = sr.ReadToEnd();
+                sr.Close();
                 FileEncrypter ret = new FileEncrypter();
                 ret.ImportKey(private_key);
                 return ret;

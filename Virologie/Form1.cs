@@ -16,7 +16,10 @@ namespace Virologie
         public Form1()
         {
             InitializeComponent();
-            HomeCheckBox_Click(null, null);
+            if (CryptoKeyManager.guid == Guid.Empty)
+                HomeCheckBox_Click(null, null);
+            else
+                ScanCheckBox_Click();
 
             /*HomeCollection.Add(WarningTextBox);
             HomeCollection.Add(DangerPictureBox);

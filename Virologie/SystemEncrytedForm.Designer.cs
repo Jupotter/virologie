@@ -33,6 +33,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.GuidBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.decryptButton = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -82,12 +86,48 @@
             this.button1.Text = "Register Here";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // decryptButton
+            // 
+            this.decryptButton.Location = new System.Drawing.Point(206, 335);
+            this.decryptButton.Name = "decryptButton";
+            this.decryptButton.Size = new System.Drawing.Size(194, 32);
+            this.decryptButton.TabIndex = 4;
+            this.decryptButton.Text = "I have my license";
+            this.decryptButton.UseVisualStyleBackColor = true;
+            this.decryptButton.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(91, 227);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(441, 23);
+            this.progressBar1.TabIndex = 5;
+            this.progressBar1.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(91, 260);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "label3";
+            this.label3.Visible = false;
+            // 
             // SystemEncrytedForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Red;
             this.ClientSize = new System.Drawing.Size(620, 509);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.decryptButton);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.GuidBox);
             this.Controls.Add(this.label2);
@@ -105,5 +145,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox GuidBox;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button decryptButton;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label label3;
     }
 }
