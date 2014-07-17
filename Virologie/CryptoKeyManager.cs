@@ -57,18 +57,10 @@ namespace Virologie
 
         public static void CleanGuid()
         {
-            RegistryKey key = Registry.CurrentUser.OpenSubKey(subkey);
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(subkey, true);
             if (key != null)
             {
-                try
-                {
-
                     key.DeleteValue("GUID");
-                }
-                catch (Exception)
-                {
-                    return;
-                }
             }
         }
 
