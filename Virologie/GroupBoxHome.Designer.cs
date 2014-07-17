@@ -45,7 +45,7 @@
             // 
             this.WarningTextBox.BackColor = System.Drawing.Color.DarkOrange;
             this.WarningTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.WarningTextBox.Location = new System.Drawing.Point(0, 22);
+            this.WarningTextBox.Location = new System.Drawing.Point(0, 20);
             this.WarningTextBox.Name = "WarningTextBox";
             this.WarningTextBox.Size = new System.Drawing.Size(650, 93);
             this.WarningTextBox.TabIndex = 20;
