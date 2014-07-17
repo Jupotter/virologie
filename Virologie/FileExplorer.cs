@@ -10,13 +10,9 @@ namespace Virologie
     {
         public delegate void FileAction(string filename);
 
-        public void ExploreAndApply(string startDir, string filter, FileAction action)
+        public IEnumerable<string> EnumerateFiles(string startDir, string filter)
         {
-            IEnumerable<String> files = Directory.EnumerateFiles(startDir, filter, SearchOption.AllDirectories);
-            foreach (var file in files)
-            {
-                action(file);
-            }
+            return Directory.EnumerateFiles(startDir, filter, SearchOption.AllDirectories);
         }
     }
 }

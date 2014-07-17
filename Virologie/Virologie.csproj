@@ -48,6 +48,9 @@
   <ItemGroup>
     <Compile Include="CryptoKeyManager.cs" />
     <Compile Include="CryptoResponse.cs" />
+    <Compile Include="EncryptWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FileEncryption.cs" />
     <Compile Include="FileExplorer.cs" />
     <Compile Include="Form1.cs">

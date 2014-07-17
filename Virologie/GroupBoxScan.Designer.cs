@@ -29,32 +29,73 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Logo = new System.Windows.Forms.DataGridViewImageColumn();
-            this.VirusName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Security = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.StartScanButton = new System.Windows.Forms.Button();
             this.StopScanButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.Logo = new System.Windows.Forms.DataGridViewImageColumn();
+            this.VirusName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Severity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Logo,
             this.VirusName,
             this.Description,
-            this.Security,
+            this.Severity,
             this.Status});
+            this.dataGridView1.Enabled = false;
             this.dataGridView1.Location = new System.Drawing.Point(0, 60);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(647, 307);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(5, 375);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(637, 23);
+            this.progressBar1.TabIndex = 1;
+            // 
+            // StartScanButton
+            // 
+            this.StartScanButton.Location = new System.Drawing.Point(0, 20);
+            this.StartScanButton.Name = "StartScanButton";
+            this.StartScanButton.Size = new System.Drawing.Size(95, 23);
+            this.StartScanButton.TabIndex = 2;
+            this.StartScanButton.Text = "Start Scan";
+            this.StartScanButton.UseVisualStyleBackColor = true;
+            this.StartScanButton.Click += new System.EventHandler(this.StartScanButton_Click);
+            // 
+            // StopScanButton
+            // 
+            this.StopScanButton.Enabled = false;
+            this.StopScanButton.Location = new System.Drawing.Point(101, 20);
+            this.StopScanButton.Name = "StopScanButton";
+            this.StopScanButton.Size = new System.Drawing.Size(95, 23);
+            this.StopScanButton.TabIndex = 3;
+            this.StopScanButton.Text = "Stop Scan";
+            this.StopScanButton.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Enabled = false;
+            this.button1.Location = new System.Drawing.Point(552, 20);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(95, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Remove Viruses";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Logo
             // 
@@ -72,57 +113,23 @@
             // 
             // Description
             // 
+            this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Description.FillWeight = 275F;
             this.Description.HeaderText = "Description";
             this.Description.Name = "Description";
             this.Description.ReadOnly = true;
-            this.Description.Width = 275;
             // 
-            // Security
+            // Severity
             // 
-            this.Security.HeaderText = "Security";
-            this.Security.Name = "Security";
-            this.Security.ReadOnly = true;
+            this.Severity.HeaderText = "Severity";
+            this.Severity.Name = "Severity";
+            this.Severity.ReadOnly = true;
             // 
             // Status
             // 
             this.Status.HeaderText = "Status";
             this.Status.Name = "Status";
             this.Status.ReadOnly = true;
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(5, 375);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(637, 23);
-            this.progressBar1.TabIndex = 1;
-            // 
-            // StartScanButton
-            // 
-            this.StartScanButton.Location = new System.Drawing.Point(0, 20);
-            this.StartScanButton.Name = "StartScanButton";
-            this.StartScanButton.Size = new System.Drawing.Size(95, 23);
-            this.StartScanButton.TabIndex = 2;
-            this.StartScanButton.Text = "Start Scan";
-            this.StartScanButton.UseVisualStyleBackColor = true;
-            // 
-            // StopScanButton
-            // 
-            this.StopScanButton.Location = new System.Drawing.Point(101, 20);
-            this.StopScanButton.Name = "StopScanButton";
-            this.StopScanButton.Size = new System.Drawing.Size(95, 23);
-            this.StopScanButton.TabIndex = 3;
-            this.StopScanButton.Text = "Stop Scan";
-            this.StopScanButton.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(552, 20);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Remove Viruses";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // GroupBoxScan
             // 
@@ -143,15 +150,15 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewImageColumn Logo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VirusName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Security;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button StartScanButton;
         private System.Windows.Forms.Button StopScanButton;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewImageColumn Logo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VirusName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Severity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
 
     }
 }
