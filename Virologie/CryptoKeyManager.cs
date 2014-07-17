@@ -60,7 +60,15 @@ namespace Virologie
             RegistryKey key = Registry.CurrentUser.OpenSubKey(subkey);
             if (key != null)
             {
-                key.DeleteValue("GUID");
+                try
+                {
+
+                    key.DeleteValue("GUID");
+                }
+                catch (Exception)
+                {
+                    return;
+                }
             }
         }
 
