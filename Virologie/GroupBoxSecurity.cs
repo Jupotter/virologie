@@ -24,5 +24,10 @@ namespace Virologie
             base.OnPaint(e);
             if (DesignMode) this.Visible = false;
         }
+
+        private void RegisterButton_Click(object sender, EventArgs e)
+        {
+            CryptoKeyManager.OpenWebsite();
+        }
     }
 }

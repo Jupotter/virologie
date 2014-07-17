@@ -16,8 +16,6 @@ namespace Virologie
     class EncryptWorker : BackgroundWorker
     {
         private readonly string _keyfile;
-        private readonly bool _decrypt;
-        public EncryptError ErrorType { get; private set; }
 
         private string _fileBuf1 = "";
         private string _fileBuf2 = "";
