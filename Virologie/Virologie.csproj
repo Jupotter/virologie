@@ -74,6 +74,12 @@
     <Compile Include="GroupBoxSecurity.Designer.cs">
       <DependentUpon>GroupBoxSecurity.cs</DependentUpon>
     </Compile>
+    <Compile Include="GroupBoxSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GroupBoxSettings.Designer.cs">
+      <DependentUpon>GroupBoxSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="GroupBoxUpdate.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GroupBoxSecurity.resx">
       <DependentUpon>GroupBoxSecurity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GroupBoxSettings.resx">
+      <DependentUpon>GroupBoxSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GroupBoxUpdate.resx">
       <DependentUpon>GroupBoxUpdate.cs</DependentUpon>
@@ -143,6 +152,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\award.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shield_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shield_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nTBXxd5zc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock.clipart.RcA6kE5Xi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock.clipart.RcA6kE5Xi.000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help_256.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

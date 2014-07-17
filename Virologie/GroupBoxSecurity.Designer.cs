@@ -31,19 +31,19 @@
             this.Update1Label = new System.Windows.Forms.Label();
             this.Update2Label = new System.Windows.Forms.Label();
             this.Award1PictureBox = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.Award2PictureBox = new System.Windows.Forms.PictureBox();
+            this.Award3PictureBox = new System.Windows.Forms.PictureBox();
             this.Award1Label = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Award2Label = new System.Windows.Forms.Label();
+            this.Award3Label = new System.Windows.Forms.Label();
+            this.RegisterButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.SecurityPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.Award1PictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Award2PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Award3PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // Update1Label
@@ -79,23 +79,23 @@
             this.Award1PictureBox.TabIndex = 30;
             this.Award1PictureBox.TabStop = false;
             // 
-            // pictureBox1
+            // Award2PictureBox
             // 
-            this.pictureBox1.Image = global::Virologie.Properties.Resources.award;
-            this.pictureBox1.Location = new System.Drawing.Point(288, 151);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(75, 75);
-            this.pictureBox1.TabIndex = 31;
-            this.pictureBox1.TabStop = false;
+            this.Award2PictureBox.Image = global::Virologie.Properties.Resources.award;
+            this.Award2PictureBox.Location = new System.Drawing.Point(288, 151);
+            this.Award2PictureBox.Name = "Award2PictureBox";
+            this.Award2PictureBox.Size = new System.Drawing.Size(75, 75);
+            this.Award2PictureBox.TabIndex = 31;
+            this.Award2PictureBox.TabStop = false;
             // 
-            // pictureBox2
+            // Award3PictureBox
             // 
-            this.pictureBox2.Image = global::Virologie.Properties.Resources.award;
-            this.pictureBox2.Location = new System.Drawing.Point(509, 151);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(75, 75);
-            this.pictureBox2.TabIndex = 32;
-            this.pictureBox2.TabStop = false;
+            this.Award3PictureBox.Image = global::Virologie.Properties.Resources.award;
+            this.Award3PictureBox.Location = new System.Drawing.Point(509, 151);
+            this.Award3PictureBox.Name = "Award3PictureBox";
+            this.Award3PictureBox.Size = new System.Drawing.Size(75, 75);
+            this.Award3PictureBox.TabIndex = 32;
+            this.Award3PictureBox.TabStop = false;
             // 
             // Award1Label
             // 
@@ -107,38 +107,38 @@
             this.Award1Label.TabIndex = 33;
             this.Award1Label.Text = "Best Antivirus of the Year 2014";
             // 
-            // label1
+            // Award2Label
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.Window;
-            this.label1.Location = new System.Drawing.Point(256, 253);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 13);
-            this.label1.TabIndex = 34;
-            this.label1.Text = "Best Customer Service 2014";
+            this.Award2Label.AutoSize = true;
+            this.Award2Label.BackColor = System.Drawing.SystemColors.Window;
+            this.Award2Label.Location = new System.Drawing.Point(256, 253);
+            this.Award2Label.Name = "Award2Label";
+            this.Award2Label.Size = new System.Drawing.Size(141, 13);
+            this.Award2Label.TabIndex = 34;
+            this.Award2Label.Text = "Best Customer Service 2014";
             // 
-            // label2
+            // Award3Label
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.SystemColors.Window;
-            this.label2.Location = new System.Drawing.Point(476, 253);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(137, 13);
-            this.label2.TabIndex = 35;
-            this.label2.Text = "Most Trusted Solution 2014";
+            this.Award3Label.AutoSize = true;
+            this.Award3Label.BackColor = System.Drawing.SystemColors.Window;
+            this.Award3Label.Location = new System.Drawing.Point(476, 253);
+            this.Award3Label.Name = "Award3Label";
+            this.Award3Label.Size = new System.Drawing.Size(137, 13);
+            this.Award3Label.TabIndex = 35;
+            this.Award3Label.Text = "Most Trusted Solution 2014";
             // 
-            // button1
+            // RegisterButton
             // 
-            this.button1.BackColor = System.Drawing.Color.Gold;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(205, 339);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(238, 90);
-            this.button1.TabIndex = 36;
-            this.button1.Text = "Register now !";
-            this.button1.UseVisualStyleBackColor = false;
+            this.RegisterButton.BackColor = System.Drawing.Color.Gold;
+            this.RegisterButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RegisterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RegisterButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.RegisterButton.Location = new System.Drawing.Point(205, 339);
+            this.RegisterButton.Name = "RegisterButton";
+            this.RegisterButton.Size = new System.Drawing.Size(238, 90);
+            this.RegisterButton.TabIndex = 36;
+            this.RegisterButton.Text = "Register now !";
+            this.RegisterButton.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -164,36 +164,36 @@
             this.panel3.Size = new System.Drawing.Size(170, 155);
             this.panel3.TabIndex = 38;
             // 
-            // panel4
+            // SecurityPanel
             // 
-            this.panel4.BackColor = System.Drawing.Color.Green;
-            this.panel4.Location = new System.Drawing.Point(0, 20);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(650, 90);
-            this.panel4.TabIndex = 39;
+            this.SecurityPanel.BackColor = System.Drawing.Color.Green;
+            this.SecurityPanel.Location = new System.Drawing.Point(0, 20);
+            this.SecurityPanel.Name = "SecurityPanel";
+            this.SecurityPanel.Size = new System.Drawing.Size(650, 90);
+            this.SecurityPanel.TabIndex = 39;
             // 
             // GroupBoxSecurity
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Award3Label);
+            this.Controls.Add(this.Award2Label);
             this.Controls.Add(this.Award1Label);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.Award3PictureBox);
+            this.Controls.Add(this.Award2PictureBox);
             this.Controls.Add(this.Award1PictureBox);
             this.Controls.Add(this.Update2Label);
             this.Controls.Add(this.Update1Label);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.RegisterButton);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.SecurityPanel);
             this.Name = "GroupBoxSecurity";
             this.Size = new System.Drawing.Size(680, 500);
             ((System.ComponentModel.ISupportInitialize)(this.Award1PictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Award2PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Award3PictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,16 +204,16 @@
         private System.Windows.Forms.Label Update1Label;
         private System.Windows.Forms.Label Update2Label;
         private System.Windows.Forms.PictureBox Award1PictureBox;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox Award2PictureBox;
+        private System.Windows.Forms.PictureBox Award3PictureBox;
         private System.Windows.Forms.Label Award1Label;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label Award2Label;
+        private System.Windows.Forms.Label Award3Label;
+        private System.Windows.Forms.Button RegisterButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel SecurityPanel;
 
     }
 }

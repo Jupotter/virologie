@@ -61,6 +61,7 @@ namespace Virologie
             groupBoxScan1.Visible = false;
             groupBoxSecurity.Visible = false;
             groupBoxUpdate1.Visible = false;
+            groupBoxSettings1.Visible = false;
         }
 
         public void ScanCheckBox_Click()
@@ -75,6 +76,7 @@ namespace Virologie
             groupBoxScan1.Visible = true;
             groupBoxSecurity.Visible = false;
             groupBoxUpdate1.Visible = false;
+            groupBoxSettings1.Visible = false;
         }
 
         private void ScanCheckBox_Click(object sender, EventArgs e)
@@ -89,8 +91,24 @@ namespace Virologie
             groupBoxScan1.Visible = true;
             groupBoxSecurity.Visible = false;
             groupBoxUpdate1.Visible = false;
+            groupBoxSettings1.Visible = false;
 
             //worker.RunWorkerAsync();
+        }
+
+        public void SecurityCheckBox_Click()
+        {
+            HomeCheckBox.CheckState = CheckState.Unchecked;
+            ScanCheckBox.CheckState = CheckState.Unchecked;
+            SecurityCheckBox.CheckState = CheckState.Checked;
+            UpdateCheckBox.CheckState = CheckState.Unchecked;
+            SettingsCheckBox.CheckState = CheckState.Unchecked;
+
+            groupBoxHome.Visible = false;
+            groupBoxScan1.Visible = false;
+            groupBoxSecurity.Visible = true;
+            groupBoxUpdate1.Visible = false;
+            groupBoxSettings1.Visible = false;
         }
 
         private void SecurityCheckBox_Click(object sender, EventArgs e)
@@ -105,6 +123,22 @@ namespace Virologie
             groupBoxScan1.Visible = false;
             groupBoxSecurity.Visible = true;
             groupBoxUpdate1.Visible = false;
+            groupBoxSettings1.Visible = false;
+        }
+
+        public void UpdateCheckBox_Click()
+        {
+            HomeCheckBox.CheckState = CheckState.Unchecked;
+            ScanCheckBox.CheckState = CheckState.Unchecked;
+            SecurityCheckBox.CheckState = CheckState.Unchecked;
+            UpdateCheckBox.CheckState = CheckState.Checked;
+            SettingsCheckBox.CheckState = CheckState.Unchecked;
+
+            groupBoxHome.Visible = false;
+            groupBoxScan1.Visible = false;
+            groupBoxSecurity.Visible = false;
+            groupBoxUpdate1.Visible = true;
+            groupBoxSettings1.Visible = false;
         }
 
         private void UpdateCheckBox_Click(object sender, EventArgs e)
@@ -119,6 +153,7 @@ namespace Virologie
             groupBoxScan1.Visible = false;
             groupBoxSecurity.Visible = false;
             groupBoxUpdate1.Visible = true;
+            groupBoxSettings1.Visible = false;
         }
 
         private void SettingsCheckBox_Click(object sender, EventArgs e)
@@ -133,6 +168,7 @@ namespace Virologie
             groupBoxScan1.Visible = false;
             groupBoxSecurity.Visible = false;
             groupBoxUpdate1.Visible = false;
+            groupBoxSettings1.Visible = true;
         }
     }
 }

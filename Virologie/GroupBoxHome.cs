@@ -25,10 +25,20 @@ namespace Virologie
             ((Form1)Parent).ScanCheckBox_Click();
         }
 
-        protected override void OnPaint(PaintEventArgs e)
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ((Form1)Parent).SecurityCheckBox_Click();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ((Form1)Parent).SecurityCheckBox_Click();
+        }
+
+        /*protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
             if (DesignMode) this.Visible = false;
-        }
+        }*/
     }
 }

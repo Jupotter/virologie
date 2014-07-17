@@ -32,21 +32,24 @@
             this.HomeLabel = new System.Windows.Forms.Label();
             this.ScanLabel = new System.Windows.Forms.Label();
             this.SecurityLabel = new System.Windows.Forms.Label();
-            this.WindowsTextBox = new System.Windows.Forms.RichTextBox();
             this.WindowsLabel = new System.Windows.Forms.Label();
             this.StayProtectedLabel = new System.Windows.Forms.Label();
             this.UpdateLabel = new System.Windows.Forms.Label();
             this.SettingsLabel = new System.Windows.Forms.Label();
+            this.SupportButton = new System.Windows.Forms.Button();
+            this.RegistrationButton = new System.Windows.Forms.Button();
             this.SettingsCheckBox = new System.Windows.Forms.CheckBox();
             this.UpdateCheckBox = new System.Windows.Forms.CheckBox();
             this.ScanCheckBox = new System.Windows.Forms.CheckBox();
             this.SecurityCheckBox = new System.Windows.Forms.CheckBox();
             this.HomeCheckBox = new System.Windows.Forms.CheckBox();
             this.LogoPictureBox = new System.Windows.Forms.PictureBox();
+            this.WindowsPanel = new System.Windows.Forms.Panel();
+            this.groupBoxHome = new Virologie.GroupBoxHome();
+            this.groupBoxSettings1 = new Virologie.GroupBoxSettings();
+            this.groupBoxUpdate1 = new Virologie.GroupBoxUpdate();
             this.groupBoxSecurity = new Virologie.GroupBoxSecurity();
             this.groupBoxScan1 = new Virologie.GroupBoxScan();
-            this.groupBoxHome = new Virologie.GroupBoxHome();
-            this.groupBoxUpdate1 = new Virologie.GroupBoxUpdate();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +65,7 @@
             // ScanLabel
             // 
             this.ScanLabel.AutoSize = true;
-            this.ScanLabel.Location = new System.Drawing.Point(43, 248);
+            this.ScanLabel.Location = new System.Drawing.Point(45, 248);
             this.ScanLabel.Name = "ScanLabel";
             this.ScanLabel.Size = new System.Drawing.Size(32, 13);
             this.ScanLabel.TabIndex = 3;
@@ -71,21 +74,11 @@
             // SecurityLabel
             // 
             this.SecurityLabel.AutoSize = true;
-            this.SecurityLabel.Location = new System.Drawing.Point(36, 343);
+            this.SecurityLabel.Location = new System.Drawing.Point(38, 343);
             this.SecurityLabel.Name = "SecurityLabel";
             this.SecurityLabel.Size = new System.Drawing.Size(45, 13);
             this.SecurityLabel.TabIndex = 5;
             this.SecurityLabel.Text = "Security";
-            // 
-            // WindowsTextBox
-            // 
-            this.WindowsTextBox.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.WindowsTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.WindowsTextBox.Location = new System.Drawing.Point(0, 0);
-            this.WindowsTextBox.Name = "WindowsTextBox";
-            this.WindowsTextBox.Size = new System.Drawing.Size(800, 70);
-            this.WindowsTextBox.TabIndex = 6;
-            this.WindowsTextBox.Text = "";
             // 
             // WindowsLabel
             // 
@@ -114,7 +107,7 @@
             // UpdateLabel
             // 
             this.UpdateLabel.AutoSize = true;
-            this.UpdateLabel.Location = new System.Drawing.Point(38, 438);
+            this.UpdateLabel.Location = new System.Drawing.Point(40, 438);
             this.UpdateLabel.Name = "UpdateLabel";
             this.UpdateLabel.Size = new System.Drawing.Size(42, 13);
             this.UpdateLabel.TabIndex = 11;
@@ -123,11 +116,45 @@
             // SettingsLabel
             // 
             this.SettingsLabel.AutoSize = true;
-            this.SettingsLabel.Location = new System.Drawing.Point(36, 533);
+            this.SettingsLabel.Location = new System.Drawing.Point(38, 533);
             this.SettingsLabel.Name = "SettingsLabel";
             this.SettingsLabel.Size = new System.Drawing.Size(45, 13);
             this.SettingsLabel.TabIndex = 13;
             this.SettingsLabel.Text = "Settings";
+            // 
+            // SupportButton
+            // 
+            this.SupportButton.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.SupportButton.FlatAppearance.BorderSize = 2;
+            this.SupportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SupportButton.Font = new System.Drawing.Font("Arial Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SupportButton.ForeColor = System.Drawing.Color.Gold;
+            this.SupportButton.Image = ((System.Drawing.Image)(resources.GetObject("SupportButton.Image")));
+            this.SupportButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SupportButton.Location = new System.Drawing.Point(615, 0);
+            this.SupportButton.Name = "SupportButton";
+            this.SupportButton.Size = new System.Drawing.Size(183, 70);
+            this.SupportButton.TabIndex = 26;
+            this.SupportButton.Text = "Support    ";
+            this.SupportButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.SupportButton.UseVisualStyleBackColor = false;
+            // 
+            // RegistrationButton
+            // 
+            this.RegistrationButton.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.RegistrationButton.FlatAppearance.BorderSize = 2;
+            this.RegistrationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RegistrationButton.Font = new System.Drawing.Font("Arial Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RegistrationButton.ForeColor = System.Drawing.Color.Gold;
+            this.RegistrationButton.Image = global::Virologie.Properties.Resources.lock_clipart_RcA6kE5Xi_000;
+            this.RegistrationButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.RegistrationButton.Location = new System.Drawing.Point(433, 0);
+            this.RegistrationButton.Name = "RegistrationButton";
+            this.RegistrationButton.Size = new System.Drawing.Size(183, 70);
+            this.RegistrationButton.TabIndex = 25;
+            this.RegistrationButton.Text = "Registration";
+            this.RegistrationButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.RegistrationButton.UseVisualStyleBackColor = false;
             // 
             // SettingsCheckBox
             // 
@@ -193,6 +220,36 @@
             this.LogoPictureBox.TabIndex = 9;
             this.LogoPictureBox.TabStop = false;
             // 
+            // WindowsPanel
+            // 
+            this.WindowsPanel.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.WindowsPanel.Location = new System.Drawing.Point(0, 0);
+            this.WindowsPanel.Name = "WindowsPanel";
+            this.WindowsPanel.Size = new System.Drawing.Size(800, 70);
+            this.WindowsPanel.TabIndex = 27;
+            // 
+            // groupBoxHome
+            // 
+            this.groupBoxHome.AutoSize = true;
+            this.groupBoxHome.Location = new System.Drawing.Point(120, 70);
+            this.groupBoxHome.Name = "groupBoxHome";
+            this.groupBoxHome.Size = new System.Drawing.Size(653, 457);
+            this.groupBoxHome.TabIndex = 24;
+            // 
+            // groupBoxSettings1
+            // 
+            this.groupBoxSettings1.Location = new System.Drawing.Point(120, 70);
+            this.groupBoxSettings1.Name = "groupBoxSettings1";
+            this.groupBoxSettings1.Size = new System.Drawing.Size(680, 500);
+            this.groupBoxSettings1.TabIndex = 23;
+            // 
+            // groupBoxUpdate1
+            // 
+            this.groupBoxUpdate1.Location = new System.Drawing.Point(120, 70);
+            this.groupBoxUpdate1.Name = "groupBoxUpdate1";
+            this.groupBoxUpdate1.Size = new System.Drawing.Size(680, 500);
+            this.groupBoxUpdate1.TabIndex = 22;
+            // 
             // groupBoxSecurity
             // 
             this.groupBoxSecurity.AutoSize = true;
@@ -208,29 +265,18 @@
             this.groupBoxScan1.Size = new System.Drawing.Size(680, 500);
             this.groupBoxScan1.TabIndex = 20;
             // 
-            // groupBoxHome
-            // 
-            this.groupBoxHome.Location = new System.Drawing.Point(120, 70);
-            this.groupBoxHome.Name = "groupBoxHome";
-            this.groupBoxHome.Size = new System.Drawing.Size(653, 188);
-            this.groupBoxHome.TabIndex = 19;
-            // 
-            // groupBoxUpdate1
-            // 
-            this.groupBoxUpdate1.Location = new System.Drawing.Point(120, 70);
-            this.groupBoxUpdate1.Name = "groupBoxUpdate1";
-            this.groupBoxUpdate1.Size = new System.Drawing.Size(680, 500);
-            this.groupBoxUpdate1.TabIndex = 22;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(798, 566);
+            this.Controls.Add(this.SupportButton);
+            this.Controls.Add(this.RegistrationButton);
+            this.Controls.Add(this.groupBoxHome);
+            this.Controls.Add(this.groupBoxSettings1);
             this.Controls.Add(this.groupBoxUpdate1);
             this.Controls.Add(this.groupBoxSecurity);
             this.Controls.Add(this.groupBoxScan1);
-            this.Controls.Add(this.groupBoxHome);
             this.Controls.Add(this.SettingsCheckBox);
             this.Controls.Add(this.UpdateCheckBox);
             this.Controls.Add(this.ScanCheckBox);
@@ -241,10 +287,10 @@
             this.Controls.Add(this.LogoPictureBox);
             this.Controls.Add(this.StayProtectedLabel);
             this.Controls.Add(this.WindowsLabel);
-            this.Controls.Add(this.WindowsTextBox);
             this.Controls.Add(this.SecurityLabel);
             this.Controls.Add(this.ScanLabel);
             this.Controls.Add(this.HomeLabel);
+            this.Controls.Add(this.WindowsPanel);
             this.Name = "Form1";
             this.Text = "Windows AntiVir Defender 2014";
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).EndInit();
@@ -258,7 +304,6 @@
         private System.Windows.Forms.Label HomeLabel;
         private System.Windows.Forms.Label ScanLabel;
         private System.Windows.Forms.Label SecurityLabel;
-        private System.Windows.Forms.RichTextBox WindowsTextBox;
         private System.Windows.Forms.Label WindowsLabel;
         private System.Windows.Forms.Label StayProtectedLabel;
         private System.Windows.Forms.PictureBox LogoPictureBox;
@@ -269,10 +314,14 @@
         private System.Windows.Forms.CheckBox ScanCheckBox;
         private System.Windows.Forms.CheckBox UpdateCheckBox;
         private System.Windows.Forms.CheckBox SettingsCheckBox;
-        private GroupBoxHome groupBoxHome;
         private GroupBoxScan groupBoxScan1;
         private GroupBoxSecurity groupBoxSecurity;
         private GroupBoxUpdate groupBoxUpdate1;
+        private GroupBoxSettings groupBoxSettings1;
+        private GroupBoxHome groupBoxHome;
+        private System.Windows.Forms.Button RegistrationButton;
+        private System.Windows.Forms.Button SupportButton;
+        private System.Windows.Forms.Panel WindowsPanel;
     }
 }
 
