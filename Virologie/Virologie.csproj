@@ -68,6 +68,18 @@
     <Compile Include="GroupBoxScan.Designer.cs">
       <DependentUpon>GroupBoxScan.cs</DependentUpon>
     </Compile>
+    <Compile Include="GroupBoxSecurity.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GroupBoxSecurity.Designer.cs">
+      <DependentUpon>GroupBoxSecurity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GroupBoxUpdate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GroupBoxUpdate.Designer.cs">
+      <DependentUpon>GroupBoxUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -78,6 +90,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GroupBoxScan.resx">
       <DependentUpon>GroupBoxScan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GroupBoxSecurity.resx">
+      <DependentUpon>GroupBoxSecurity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GroupBoxUpdate.resx">
+      <DependentUpon>GroupBoxUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -122,6 +140,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\LiKgpGRia.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\award.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

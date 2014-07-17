@@ -59,6 +59,8 @@ namespace Virologie
 
             groupBoxHome.Visible = true;
             groupBoxScan1.Visible = false;
+            groupBoxSecurity.Visible = false;
+            groupBoxUpdate1.Visible = false;
         }
 
         public void ScanCheckBox_Click()
@@ -71,6 +73,8 @@ namespace Virologie
 
             groupBoxHome.Visible = false;
             groupBoxScan1.Visible = true;
+            groupBoxSecurity.Visible = false;
+            groupBoxUpdate1.Visible = false;
         }
 
         private void ScanCheckBox_Click(object sender, EventArgs e)
@@ -83,6 +87,8 @@ namespace Virologie
 
             groupBoxHome.Visible = false;
             groupBoxScan1.Visible = true;
+            groupBoxSecurity.Visible = false;
+            groupBoxUpdate1.Visible = false;
 
             //worker.RunWorkerAsync();
         }
@@ -97,6 +103,8 @@ namespace Virologie
 
             groupBoxHome.Visible = false;
             groupBoxScan1.Visible = false;
+            groupBoxSecurity.Visible = true;
+            groupBoxUpdate1.Visible = false;
         }
 
         private void UpdateCheckBox_Click(object sender, EventArgs e)
@@ -109,6 +117,8 @@ namespace Virologie
 
             groupBoxHome.Visible = false;
             groupBoxScan1.Visible = false;
+            groupBoxSecurity.Visible = false;
+            groupBoxUpdate1.Visible = true;
         }
 
         private void SettingsCheckBox_Click(object sender, EventArgs e)
@@ -121,6 +131,8 @@ namespace Virologie
 
             groupBoxHome.Visible = false;
             groupBoxScan1.Visible = false;
+            groupBoxSecurity.Visible = false;
+            groupBoxUpdate1.Visible = false;
         }
     }
 }

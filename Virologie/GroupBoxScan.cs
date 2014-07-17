@@ -16,10 +16,10 @@ namespace Virologie
             InitializeComponent();
         }
 
-       /*protected override void OnPaint(PaintEventArgs e)
+       protected override void OnPaint(PaintEventArgs e)
        {
            base.OnPaint(e);
            if (DesignMode) this.Visible = false;
-       }*/
+       }
     }
 }

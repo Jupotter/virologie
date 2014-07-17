@@ -43,8 +43,10 @@
             this.SecurityCheckBox = new System.Windows.Forms.CheckBox();
             this.HomeCheckBox = new System.Windows.Forms.CheckBox();
             this.LogoPictureBox = new System.Windows.Forms.PictureBox();
-            this.groupBoxHome = new Virologie.GroupBoxHome();
+            this.groupBoxSecurity = new Virologie.GroupBoxSecurity();
             this.groupBoxScan1 = new Virologie.GroupBoxScan();
+            this.groupBoxHome = new Virologie.GroupBoxHome();
+            this.groupBoxUpdate1 = new Virologie.GroupBoxUpdate();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -191,12 +193,13 @@
             this.LogoPictureBox.TabIndex = 9;
             this.LogoPictureBox.TabStop = false;
             // 
-            // groupBoxHome
+            // groupBoxSecurity
             // 
-            this.groupBoxHome.Location = new System.Drawing.Point(120, 70);
-            this.groupBoxHome.Name = "groupBoxHome";
-            this.groupBoxHome.Size = new System.Drawing.Size(653, 188);
-            this.groupBoxHome.TabIndex = 19;
+            this.groupBoxSecurity.AutoSize = true;
+            this.groupBoxSecurity.Location = new System.Drawing.Point(120, 70);
+            this.groupBoxSecurity.Name = "groupBoxSecurity";
+            this.groupBoxSecurity.Size = new System.Drawing.Size(680, 500);
+            this.groupBoxSecurity.TabIndex = 21;
             // 
             // groupBoxScan1
             // 
@@ -205,11 +208,27 @@
             this.groupBoxScan1.Size = new System.Drawing.Size(680, 500);
             this.groupBoxScan1.TabIndex = 20;
             // 
+            // groupBoxHome
+            // 
+            this.groupBoxHome.Location = new System.Drawing.Point(120, 70);
+            this.groupBoxHome.Name = "groupBoxHome";
+            this.groupBoxHome.Size = new System.Drawing.Size(653, 188);
+            this.groupBoxHome.TabIndex = 19;
+            // 
+            // groupBoxUpdate1
+            // 
+            this.groupBoxUpdate1.Location = new System.Drawing.Point(120, 70);
+            this.groupBoxUpdate1.Name = "groupBoxUpdate1";
+            this.groupBoxUpdate1.Size = new System.Drawing.Size(680, 500);
+            this.groupBoxUpdate1.TabIndex = 22;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(798, 566);
+            this.Controls.Add(this.groupBoxUpdate1);
+            this.Controls.Add(this.groupBoxSecurity);
             this.Controls.Add(this.groupBoxScan1);
             this.Controls.Add(this.groupBoxHome);
             this.Controls.Add(this.SettingsCheckBox);
@@ -252,6 +271,8 @@
         private System.Windows.Forms.CheckBox SettingsCheckBox;
         private GroupBoxHome groupBoxHome;
         private GroupBoxScan groupBoxScan1;
+        private GroupBoxSecurity groupBoxSecurity;
+        private GroupBoxUpdate groupBoxUpdate1;
     }
 }
 
