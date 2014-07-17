@@ -64,10 +64,10 @@
             // GuidBox
             // 
             this.GuidBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GuidBox.Location = new System.Drawing.Point(166, 195);
+            this.GuidBox.Location = new System.Drawing.Point(91, 195);
             this.GuidBox.Name = "GuidBox";
             this.GuidBox.ReadOnly = true;
-            this.GuidBox.Size = new System.Drawing.Size(276, 26);
+            this.GuidBox.Size = new System.Drawing.Size(441, 26);
             this.GuidBox.TabIndex = 2;
             this.GuidBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.GuidBox.WordWrap = false;

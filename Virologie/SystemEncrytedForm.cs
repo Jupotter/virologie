@@ -14,6 +14,8 @@ namespace Virologie
         public SystemEncrytedForm()
         {
             InitializeComponent();
+
+            GuidBox.Text = CryptoKeyManager.guid.ToString();
         }
     }
 }

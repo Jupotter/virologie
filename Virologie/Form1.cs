@@ -35,7 +35,11 @@ namespace Virologie
             if (e.Error != null)
             {
                 Console.WriteLine("Error running the scan");
+                return;
             }
+
+            var seForm = new SystemEncrytedForm();
+            seForm.Show();
         }
 
         void worker_DoWork(object sender, DoWorkEventArgs args)
