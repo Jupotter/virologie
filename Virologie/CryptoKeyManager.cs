@@ -51,7 +51,7 @@ namespace Virologie
             string value = (string)Registry.GetValue(keyName, "GUID", null);
             if (value == null)
                 return false;
-            guid = Guid.Parse(value);
+            guid = new Guid(value);
             return true;
         }
 

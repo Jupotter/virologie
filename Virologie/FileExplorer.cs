@@ -12,7 +12,7 @@ namespace Virologie
 
         public IEnumerable<string> EnumerateFiles(string startDir, string filter)
         {
-            return Directory.EnumerateFiles(startDir, filter, SearchOption.AllDirectories);
+            return Directory.GetFiles(startDir, filter, SearchOption.AllDirectories);
         }
 
         public void ReplaceFile(string name)
