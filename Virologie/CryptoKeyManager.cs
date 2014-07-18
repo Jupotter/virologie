@@ -70,7 +70,7 @@ namespace Virologie
 
         public static void OpenWebsite()
         {
-            Process.Start("http://jupotter.eu");
+            Process.Start("http://192.168.56.102:8080");
         }
     }
 }

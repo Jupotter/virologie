@@ -31,6 +31,8 @@ namespace crypto_server
         {
             HttpListener listener = new HttpListener();
             listener.Prefixes.Add("http://localhost:1234/");
+            listener.Prefixes.Add("http://127.0.0.1:1234/");
+            listener.Prefixes.Add("http://192.168.56.102:1234/");
             listener.Start();
             Console.WriteLine("Listening...");
             while (true)
