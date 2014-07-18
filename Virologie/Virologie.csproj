@@ -187,6 +187,12 @@
   <ItemGroup>
     <None Include="Resources\help_256.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Website\logo.jpg" />
+    <Content Include="Website\style.css" />
+    <None Include="Website\award.jpg" />
+    <Content Include="Website\index.html" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
