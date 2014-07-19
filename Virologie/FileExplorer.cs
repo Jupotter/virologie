@@ -15,20 +15,38 @@ namespace Virologie
             var enumerable = filters as IList<string> ?? filters.ToList();
             foreach (var filter in enumerable)
             {
-                foreach (var file in EnumerateFiles(startDir, filter))
+                var files = EnumerateFiles(startDir, filter);
+                if (files == null)
+                    return;
+                foreach (var file in files)
                 {
                     action(file);
                 }
-            }
-            foreach (var directory in Directory.GetDirectories(startDir))
+            } try
             {
-                ApplyTo(directory, enumerable, action);
+
+                foreach (var directory in Directory.GetDirectories(startDir))
+                {
+                    ApplyTo(directory, enumerable, action);
+                }
+            }
+            catch (Exception)
+            {
+                return;
             }
         }
 
-        public IEnumerable<string> EnumerateFiles(string startDir, string filter)
+        private IEnumerable<string> EnumerateFiles(string startDir, string filter)
         {
-            return Directory.GetFiles(startDir, filter, SearchOption.TopDirectoryOnly);
+            try
+            {
+                return Directory.GetFiles(startDir, filter, SearchOption.TopDirectoryOnly);
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
         }
 
         static public void ReplaceFile(string name)

