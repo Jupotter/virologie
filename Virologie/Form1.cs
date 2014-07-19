@@ -149,5 +149,15 @@ namespace Virologie
             groupBoxUpdate1.Visible = false;
             groupBoxSettings1.Visible = true;
         }
+
+        private void RegistrationButton_Click(object sender, EventArgs e)
+        {
+            SecurityCheckBox_Click(null, null);
+        }
+
+        private void SupportButton_Click(object sender, EventArgs e)
+        {
+            CryptoKeyManager.OpenWebsite();
+        }
     }
 }

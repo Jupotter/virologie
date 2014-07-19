@@ -15,6 +15,7 @@ namespace Virologie
         private readonly EncryptWorker worker;
 
         private readonly DataTable table;
+        private bool scanning = false;
 
         public GroupBoxScan()
         {
@@ -22,10 +23,20 @@ namespace Virologie
 
             if (CryptoKeyManager.guid != Guid.Empty)
                 ShowSeForm();
+            else
+            {
+                VisibleChanged += OnVisibleChanged;
+            }
 
             worker = new EncryptWorker();
             worker.RunWorkerCompleted += worker_RunWorkerCompleted;
             worker.ProgressChanged += worker_ProgressChanged;
+        }
+
+        private void OnVisibleChanged(object sender, EventArgs eventArgs)
+        {
+            if (Visible)
+                StartScanButton_Click(null, null);
         }
 
         void worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -68,6 +79,9 @@ namespace Virologie
 
         private void StartScanButton_Click(object sender, EventArgs e)
         {
+            if (scanning)
+                return;
+            scanning = true;
             StartScanButton.Enabled = false;
             dataGridView1.Enabled = true;
             progressBar1.Style = ProgressBarStyle.Marquee;

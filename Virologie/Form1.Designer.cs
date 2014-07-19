@@ -138,6 +138,7 @@
             this.SupportButton.Text = "Support    ";
             this.SupportButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.SupportButton.UseVisualStyleBackColor = false;
+            this.SupportButton.Click += new System.EventHandler(this.SupportButton_Click);
             // 
             // RegistrationButton
             // 
@@ -155,6 +156,7 @@
             this.RegistrationButton.Text = "Registration";
             this.RegistrationButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.RegistrationButton.UseVisualStyleBackColor = false;
+            this.RegistrationButton.Click += new System.EventHandler(this.RegistrationButton_Click);
             // 
             // SettingsCheckBox
             // 
